@@ -4,6 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Sandbox World!");
+        Console.Write("what is your favorite color?");
+        string color = Console.ReadLine();
+        Console.WriteLine(color);
+        
     }
 }

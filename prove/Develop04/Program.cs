@@ -61,9 +61,23 @@ namespace journalApp
            WriteLine("\npress any key...");
            Readkey(true);
          }
-         private void Displayjournal Contents(){}
+         private void Displayjournal Contents()
+         {
+            ForegroundColor = ConsoleColor.DarkMagenta;
+            String journal.Text = File.ReadAllText(journalFile);
+            WriteLine("\n=== journey Contents===");
+            WriteLine(journalText);
+            WriteLine("=================");
+            WaitForkey;
+         }
 
-         private void ClearFile(){}
+         private void ClearFile()
+          {
+           ForegroundColor = ConsoleColor.Black;
+           File.WriteAllText(journalFile, " ");
+           writeLine("\njournal cleared");
+           waitForkey();
+          }
 
          private void AddEntry(){}
 

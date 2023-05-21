@@ -1,35 +1,115 @@
 using System;
-using System.collections.Generic;
+using System.Collections.generic;
 using System.IO;
-
-class journal
+using static System.Console;
+namespace journal App
 {
-    static void Main(string[] args)
-  {
-   Option O1 = new option();
-   O1._firstword = "write";
-   O1._secoundword = "Display";
-   O1._thirdword = "Load";
-   O1._forthword = "Save";
-   O1._fifthword = "Quit";
+  class journal
+    {
+      private string TittleArt =@"      _.--._  _.--._
+,-=.-":;:;:;\':;:;:;"-._
+\\\:;:;:;:;:;\:;:;:;:;:;\
+ \\\:;:;:;:;:;\:;:;:;:;:;\
+  \\\:;:;:;:;:;\:;:;:;:;:;\
+   \\\:;:;:;:;:;\:;::;:;:;:\
+    \\\;:;::;:;:;\:;:;:;::;:\
+     \\\;;:;:_:--:\:_:--:_;:;\    -shimrod
+      \\\_.-"      :      "-._\
+       \`_..--""--.;.--""--.._=> ";
 
-   Console.write("Welcome to the journal program! ");
-   Console.WriteLine("Please select one of the following choices:");
+       public void Run()
+       {
+        Title = "Journal App";
+        DisplayIntro();
+        createjournalFile();
+        WriteLine("You chose:" + Getchoice());
+        //AddEntry();
 
-   list<Option>journal = new list<journal>();
-   option.add(O1);
-
-
-   foreach (Option O in journal)
-   {
-    console.writeLine(O1._firstword);
-   }
-
-}
-static void SaveTofile(list<option>journal) 
-{
-    string filename = "journal.txt";
-    using (streamWriter outputfile = new streamWriter(filename));
-}
+        DisplayOutro();
+      
+         private string Getchoice()
+          {
+           Clear();
+           ForegroundColor = ConsoleColor.DarkGray;
+           WriteLine("Welcome to the journal program");
+           ForegroundColor  = ConsoleColor.Black;
+           WriteLine("\n Please select one of the following");
+           WriteLine(" > 1-Write the journal.");
+           WriteLine(" > 2-Display the journal.");
+           WriteLine(" > 3-Load the journal.");
+           WriteLine(" > 4-Save the journal.");
+           WriteLine(" > 5-Quit.");
+           ForegroundColor = ConsoleColor.DarkBlue;
+           string choice = ReadLine().Trim();
+           ForegroundColor = ConsoleColor.Black;
+           return choice;
+        }
     
+         
+
+        private void createjournalFile()
+        {
+           //WriteLine($"Does file exist? {File.Exists("Journal.txt)"}");
+           if (!File.Exists("journey.txt"))
+           {
+              FileCreateText("journal.txt");    
+           }
+
+         }
+         private void DisplayIntro()
+         {
+           ForegroundColor = ConsoleColor.Black;
+           BackgroundColor = ConsoleColor.White;
+           clear();
+           WriteLine("TitleArt");
+           WriteLine(" welcome to the best journal App ever!");
+           waitForkey;
+         }
+     
+         private void DisplayOutro()
+         {
+           WriteLine("\n Art from:-shimrod");
+           WriteLine("Thanks for using the journal App!");
+           waitForkey;
+         }
+         private void waitForkey()
+         {
+           ForegroundColor = ConsoleColor.DarkGray;
+           WriteLine("\n press any key...");
+           Readkey(true);
+         }
+         private void Displayjournal Contents()
+         {
+            ForegroundColor = ConsoleColor.DarkMagenta;
+            String journal.Text = File.ReadAllText(journalFile);
+            WriteLine("\n === journey Contents===");
+            WriteLine(journalText);
+            WriteLine("=================");
+            WaitForkey;
+         }
+
+         private void ClearFile()
+          {
+           ForegroundColor = ConsoleColor.Black;
+           File.WriteAllText(journalFile, " ");
+           WriteLine("\n journal cleared");
+           WaitForkey();
+          }
+
+         private void AddEntry()
+           {
+             ForegroundColor = ConsoleColor.Black;
+             WriteLine("\n What would you like to add: ");
+             ForegroundColor = ConsoleColor.DarkMagenta;
+             String newline = ReadLine();
+             File.AppendAllText(JournalFile,$"\nEntry:\n>{newline}\n");
+             ForegroundColor = Console.Black;
+             WriteLine("The journal has been modified!")
+             WaitForkey();
+           }
+        }
+    }    
+    
+   
+  
 }

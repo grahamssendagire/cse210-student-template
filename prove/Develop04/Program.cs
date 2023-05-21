@@ -24,11 +24,39 @@ namespace journalApp
 
        public void Run()
        {
-        Tittle = "Daily Journal App"
+        Tittle = "Journal App"
         DisplayIntro();
         createjournalFile();
+        WriteLine("You chose:" + Getchoice());
+        //AddEntry();
+
         DisplayOutro();
-       }
+       
+        private void Runmenu()
+    
+        {
+
+        }
+         private string Getchoice()
+        {
+           Clear();
+           ForegroundColor = ConsoleColor.DarkGray;
+           writeLine("Welcome to the journal program");
+           ForegraoundColor = ConsoleColor.Black;
+           writeLine("\n Please select one of the following");
+           writeLine(" > 1-Write the journal.");
+           writeLine(" > 2-Display the journal.");
+           writeLine(" > 3-Load the journal.");
+           writeLine(" > 4-Save the journal.");
+           writeLine(" > 5-Quit.");
+           ForegroundColor = ConsoleColor.DarkBlue;
+           string choice = ReadLine().Trim();
+           ForegroundColor = ConsoleColor.Black;
+
+           Return choice;
+        }
+    
+         
 
         private void createjournalFile()
         {
@@ -58,14 +86,14 @@ namespace journalApp
          private void waitForkey()
         {
            ForegroundColor = ConsoleColor.DarkGray;
-           WriteLine("\npress any key...");
+           WriteLine("\n press any key...");
            Readkey(true);
          }
          private void Displayjournal Contents()
          {
             ForegroundColor = ConsoleColor.DarkMagenta;
             String journal.Text = File.ReadAllText(journalFile);
-            WriteLine("\n=== journey Contents===");
+            WriteLine("\n === journey Contents===");
             WriteLine(journalText);
             WriteLine("=================");
             WaitForkey;
@@ -75,14 +103,24 @@ namespace journalApp
           {
            ForegroundColor = ConsoleColor.Black;
            File.WriteAllText(journalFile, " ");
-           writeLine("\njournal cleared");
+           writeLine("\n journal cleared");
            waitForkey();
           }
 
-         private void AddEntry(){}
-
-         private string Getchoice  
+         private void AddEntry()
+           {
+             ForegroundColor = ConsoleColor.Black;
+             WriteLineriteLine("\n What would you like to add: ");
+             ForegroundColor = ConsoleColor.DarkMagent;
+             String newline = ReadLine();
+             File.AppendAllText(journalFile,$"\nEntry:\n>{newline}\n");
+             ForegraoundColor = Console.Black;
+             WriteLine("The journal has been modified!")
+             WaitForkey();
+           }
+        }
+    }    
     
-   }
+   
   
 }

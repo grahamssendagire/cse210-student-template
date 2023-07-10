@@ -1,126 +1,73 @@
-using System;
-using System.collections.generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Task;
-using System.IO;
-using static System.Console;
-namespace journal App
-
-namespace journalApp
+public class program
 {
-  class journal
+    public static void Main()
+{
+    ListingActivity listingActivity = new ListingActivity
     {
-      private string TittleArt =@"      _.--._  _.--._
-,-=.-":;:;:;\':;:;:;"-._
-\\\:;:;:;:;:;\:;:;:;:;:;\
- \\\:;:;:;:;:;\:;:;:;:;:;\
-  \\\:;:;:;:;:;\:;:;:;:;:;\
-   \\\:;:;:;:;:;\:;::;:;:;:\
-    \\\;:;::;:;:;\:;:;:;::;:\
-     \\\;;:;:_:--:\:_:--:_;:;\    -shimrod
-      \\\_.-"      :      "-._\
-       \`_..--""--.;.--""--.._=> ";
-
-       public void Run()
-       {
-        Tittle = "Journal App"
-        DisplayIntro();
-        createjournalFile();
-        WriteLine("You chose:" + Getchoice());
-        //AddEntry();
-
-        DisplayOutro();
-       
-        private void Runmenu()
-    
+        Name = "Listing Activity",
+        Description = "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.",
+        Duration = 10,
+        Prompts = new List<string>
         {
-
+            "Who are people that you appreciate?",
+            "What are personal strengths of yours?",
+            "Who are people that you have helped this week?",
+            "When have you felt the Holy Ghost this month?",
+            "Who are some of your personal heroes?"
         }
-         private string Getchoice()
-        {
-           Clear();
-           ForegroundColor = ConsoleColor.DarkGray;
-           writeLine("Welcome to the journal program");
-           ForegraoundColor = ConsoleColor.Black;
-           writeLine("\n Please select one of the following");
-           writeLine(" > 1-Write the journal.");
-           writeLine(" > 2-Display the journal.");
-           writeLine(" > 3-Load the journal.");
-           writeLine(" > 4-Save the journal.");
-           writeLine(" > 5-Quit.");
-           ForegroundColor = ConsoleColor.DarkBlue;
-           string choice = ReadLine().Trim();
-           ForegroundColor = ConsoleColor.Black;
+    };
 
-           Return choice;
+    ReflectionActivity reflectionActivity = new ReflectionActivity
+    {
+        Name = "Reflection Activity",
+        Description = "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.",
+        Duration = 7,
+        prompts = new List<string>
+        {
+            "Think of a time when you stood up for someone else.",
+            "Think of a time when you did something really difficult.",
+            "Think of a time when you helped someone in need.",
+            "Think of a time when you did something truly selfless."
+        },
+        Questions = new List<string>
+        {
+            "Why was this experience meaningful to you?",
+            "Have you ever done anything like this before?",
+            "How did you get started?",
+            "How did you feel when it was complete?",
+            "What made this time different than other times when you were not as successful?",
+            "What is your favorite thing about this experience?",
+            "What could you learn from this experience that applies to other situations?",
+            "What did you learn about yourself through this experience?",
+            "How can you keep this experience in mind in the future?"
         }
-    
-         
+    };
 
-        private void createjournalFile()
-        {
-           //WriteLine($"Does file exist? {File.Exists("Journal.txt)"}");
-           if (!File.Exists("journey.txt"))
-           {
-              File,CreateText("journal.txt");    
-           }
+    BreathingActivity breathingActivity = new BreathingActivity
+    {
+        Name = "Breathing Activity",
+        Description = "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.",
+        Duration = 5
+    };
 
-        }
-        private void DisplayIntro()
-        {
-           ForegroundColor = ConsoleColor.Black;
-           BackgroundColor = ConsoleColor.White;
-           clear();
-           WriteLine("TitleArt");
-           WriteLine(" welcome to the best journal App ever!");
-           waitForkey;
-        }
-     
-         private void DisplayOutro()
-        {
-           WriteLine("\n Art from:-shimrod");
-           WriteLine("Thanks for using the journal App!");
-           waitForkey;
-         }
-         private void waitForkey()
-        {
-           ForegroundColor = ConsoleColor.DarkGray;
-           WriteLine("\n press any key...");
-           Readkey(true);
-         }
-         private void Displayjournal Contents()
-         {
-            ForegroundColor = ConsoleColor.DarkMagenta;
-            String journal.Text = File.ReadAllText(journalFile);
-            WriteLine("\n === journey Contents===");
-            WriteLine(journalText);
-            WriteLine("=================");
-            WaitForkey;
-         }
+    // Show the menu and let the user choose an activity
+    Console.WriteLine("Choose an activity:");
+    Console.WriteLine("1. Breathing Activity");
+    Console.WriteLine("2. Reflection Activity");
+    Console.WriteLine("3. Listing Activity");
 
-         private void ClearFile()
-          {
-           ForegroundColor = ConsoleColor.Black;
-           File.WriteAllText(journalFile, " ");
-           writeLine("\n journal cleared");
-           waitForkey();
-          }
+    // Get the user's choice
+    int choice = int.Parse(Console.ReadLine());
 
-         private void AddEntry()
-           {
-             ForegroundColor = ConsoleColor.Black;
-             WriteLineriteLine("\n What would you like to add: ");
-             ForegroundColor = ConsoleColor.DarkMagent;
-             String newline = ReadLine();
-             File.AppendAllText(journalFile,$"\nEntry:\n>{newline}\n");
-             ForegraoundColor = Console.Black;
-             WriteLine("The journal has been modified!")
-             WaitForkey();
-           }
-        }
-    }    
-    
-   
-  
+    // Run the chosen activity
+    if (choice == 1)
+        breathingActivity.RunActivity();
+    else if (choice == 2)
+        reflectionActivity.RunActivity();
+    else if (choice == 3)
+        listingActivity.RunActivity();
+    else
+        Console.WriteLine("Invalid choice!");
+  }
+
 }

@@ -1,53 +1,37 @@
-using System;
-class Scripture
+class program
 {
+    public static void Main()
+    {
+        
+        scripture scripture = new scripture("John", 3,16, "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.");
+        Console.Clear();
+        scripture.DisplayScripture();
 
-  private Reference scripturereference;
+        
+        while (true)
+        {
+            Console.WriteLine("Press enter to hide a word or type quit to exit:");
+            string userInput = Console.ReadLine();
 
-  private string text;
-  public Scripture(Reference scriptureName,string statement) // constructor-scripture
-  {
-    scripturereference = scriptureName;
-    text = statement;
-  }
+            
+            if (userInput.ToLower() == "quit")
+            {
+                break;
+            }
+            else
+            {
+                
+                Console.Clear();
+                scripture.HideWord();
+                scripture.DisplayScripture();
 
+                
+                if (scripture.AllWordsHidden())
+                {
+                    Console.WriteLine("Congratulations, you have memorized the scripture!");
+                    break;
+                }
+            }
+        }
+    }
 }
-class Program
- {
-  static void Main(string[] args)
-  {
-    Reference reference = new Reference("Proverbs",3,6); // Object-refference
-    Scripture scripture = new Scripture(reference," Trust in the LORD with all your heart and lean not on your own");
-    Word word = new Word("Hey Reading scriptures is good");
-    Console.WriteLine("scriptureName:" ); 
-    Console.WriteLine("chapter:" ); 
-    Console.WriteLine("verse:" ); 
-    Console.WriteLine("Text:" ); 
-    Console.WriteLine("word:" ); 
-  }
- }
-class Reference
-{
-  private string book;
-  private int chapter;
-  private int verse;
-  public Reference(string bookName,int bookChapter,int bookVerse) // constructor-reference
-  {
-     book = bookName;
-     chapter = bookChapter;
-     verse = bookVerse;
-     
-   }
-}
-class Word
-{
-private string word;
-  public Word(string wordName) // word-constructor 
-  {
-    word = wordName;
-  }
-}
-  
-  
-   
-  

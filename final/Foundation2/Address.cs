@@ -1,3 +1,5 @@
+namespace  Address
+{
 class Address
  {
 
@@ -34,6 +36,6 @@ public string GetAddressString()
 
 return street + "\n" + city + ", " + state + " " + country;
 
-}
-
-}
+  }
+ }
+} 

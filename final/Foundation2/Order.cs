@@ -13,7 +13,7 @@ using System;
     }
     public void AddProduct(Product product)
     { 
-        products.Add(product);
+          products.Add(product);
     }
     public double GetTotalCost() {
         double totalCost = 0;

@@ -1,13 +1,20 @@
 using System;
-class Order {
-    private Product[] products;
+    class Order 
+    {
+    private List<Product> products;
+
     private Customer customer;
 
-    public Order(Product[] products, Customer customer) {
-        this.products = products;
+    public Order( Customer customer)
+    {
+        
         this.customer = customer;
+       
     }
-
+    public void AddProduct(Product product)
+    { 
+        products.Add(product);
+    }
     public double GetTotalCost() {
         double totalCost = 0;
         foreach (Product product in products) {
@@ -21,17 +28,22 @@ class Order {
         return totalCost;
     }
 
-    public string GetPackingLabel() {
+    public string GetPackingLabel() 
+    {
         string packingLabel = "";
-        foreach (Product product in products) {
+        foreach (Product product in products) 
+        {
             packingLabel += product.GetName() + " (ID: " + product.GetId() + ")\n";
         }
         return packingLabel;
     }
 
-    public string GetShippingLabel() {
+    public string GetShippingLabel()
+    {
         Customer customer = this.customer;
         string shippingLabel = customer.GetName() + "\n" + customer.GetAddress().GetAddressString();
         return shippingLabel;
     }
-}
+  }
+ 
+ 

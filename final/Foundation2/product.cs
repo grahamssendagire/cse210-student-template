@@ -1,5 +1,4 @@
-namespace  Product
-{
+
     class Product 
 {
 
@@ -52,4 +51,4 @@ return quantity;
  }
 
  }
-}
+

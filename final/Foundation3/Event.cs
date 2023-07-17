@@ -1,9 +1,10 @@
 
 class Event {
-    private string title;
+    protected string title;
     private string description;
-    private DateTime date;
+    protected DateTime date;
     private TimeSpan time;
+    private Address address;
    
 
     public Event(string title, string description, DateTime date, TimeSpan time, Address address) {
@@ -11,7 +12,7 @@ class Event {
         this.description = description;
         this.date = date;
         this.time = time;
-        this.Address = address;
+        this.address = address;
        
     }
 

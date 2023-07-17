@@ -1,7 +1,5 @@
 using System;
-using System.Collections.Generic;
-namespace ProductOrderingSystem
-{
+
 class Program
     {
         static void Main(string[] args)
@@ -11,14 +9,14 @@ class Program
             var customer = new Customer("John Doe", address);
 
             // create a product
-            var product1 = new Product("Widget A", "A123", 2.99m, 3);
+            var product1 = new Product("Widget A", 123, 2.99, 3);
 
             // create an order with one product
             var order1 = new Order(customer);
             order1.AddProduct(product1);
 
             // create another product
-            var product2 = new Product("Widget B", "B456", 4.99m, 2);
+            var product2 = new Product("Widget B", 456, 4.99, 2);
 
             // create another order with two products
             var order2 = new Order(customer);
@@ -29,13 +27,13 @@ class Program
             Console.WriteLine("Order 1:");
             Console.WriteLine(order1.GetPackingLabel());
             Console.WriteLine(order1.GetShippingLabel());
-            Console.WriteLine($"Total price: {order1.GetTotalPrice():C}");
+            Console.WriteLine($"Total price: {order1.GetTotalCost():C}");
 
             Console.WriteLine();
             Console.WriteLine("Order 2:");
             Console.WriteLine(order2.GetPackingLabel());
             Console.WriteLine(order2.GetShippingLabel());
-            Console.WriteLine($"Total price: {order2.GetTotalPrice():C}");
+            Console.WriteLine($"Total price: {order2.GetTotalCost():C}");
         }
     }
-}
+

@@ -1,32 +1,32 @@
-namespace  Address
-{
-     class Customer
- {
 
-private string name;
 
-private Address address;
-
-public Customer(string name, Address address) 
- {
-
-this.name = name;
-
-this.address = address;
-
- }
-
-public bool IsInUSA() 
+    class Customer
   {
 
-return address.IsInUSA();
+    private string name;
 
- }
+    private Address address;
 
-public string GetName() 
- {
+    public Customer(string name, Address address) 
+    {
 
-return name;
+      this.name = name;
+
+      this.address = address;
+
+    }
+
+    public bool IsInUSA() 
+      {
+
+        return address.IsInUSA();
+
+      }
+
+    public string GetName() 
+      {
+
+      return name;
 
  }
 
@@ -39,4 +39,4 @@ return address;
  }
 
  }
-}
+

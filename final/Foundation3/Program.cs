@@ -1,7 +1,10 @@
 using System;
 
-class Program {
-    static void Main(string[] args) {
+
+  class Program 
+  {
+    static void Main(string[] args)
+     {
         Address address1 = new Address("123 Main St", "Anytown", "CA", "12345");
         Address address2 = new Address("456 Elm St", "Othertown", "NY", "67890");
         Address address3 = new Address("789 Maple St", "Somewhere", "FL", "54321");
@@ -27,4 +30,5 @@ class Program {
         Console.WriteLine(outdoorGathering.GetFullDetails());
         Console.WriteLine(outdoorGathering.GetShortDescription());
     }
-}
+  }
+

@@ -1,10 +1,14 @@
 public class Running : Activity
 {
     private double distance;
+    private DateTime date;
+    private int Length;
 
-    public Running(DateTime date, int length, double distance) : base(date, length)
+    public Running(DateTime date, int Length, double distance) : base(date, Length)
     {
         this.distance = distance;
+        this.date = date;
+        this.Length = Length;
     }
 
     public override double GetDistance()
@@ -14,12 +18,12 @@ public class Running : Activity
 
     public override double GetSpeed()
     {
-        return distance / length * 60;
+        return distance / Length * 60;
     }
 
     public override double GetPace()
     {
-        return length / distance;
+        return Length / distance;
     }
 
     public override string GetSummary()

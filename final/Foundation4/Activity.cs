@@ -1,12 +1,12 @@
 public class Activity
 {
     private DateTime date;
-    private int length;
+    private int Length;
 
-    public Activity(DateTime date, int length)
+    public Activity(DateTime date, int Length)
     {
         this.date = date;
-        this.length = length;
+        this.Length = Length;
     }
 
     public virtual double GetDistance()
@@ -26,6 +26,6 @@ public class Activity
 
     public virtual string GetSummary()
     {
-        return $"{date.ToString("dd MMM yyyy")} {GetType().Name} ({length} min)";
+        return $"{date.ToString("dd MMM yyyy")} {GetType().Name} ({Length} min)";
     }
 }
